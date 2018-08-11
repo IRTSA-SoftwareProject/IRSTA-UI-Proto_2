@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 public class ScanActivity extends AppCompatActivity {
 
-    private ImageView mScanImage;
+    private PhotoView mScanImage;
     private MenuItem mSettings;
     private MenuItem mSave;
 
@@ -59,6 +61,7 @@ public class ScanActivity extends AppCompatActivity {
     }
 
     private void initialiseUI() {
-        mScanImage = findViewById(R.id.scanImage);
+        PhotoView mScanImage = findViewById(R.id.scanImage);
+        mScanImage.setImageResource(R.drawable.phase);
     }
 }
