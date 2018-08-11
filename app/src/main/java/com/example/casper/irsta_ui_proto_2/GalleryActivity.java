@@ -21,14 +21,16 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navBar);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        // Define the Nav view for the menu at bottom of the app
+        BottomNavigationView bottomNavView = findViewById(R.id.navBar);
+        bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_scan:
                         Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(iMain);
+                        //Animation transition to new activity
                         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
                 return false;
@@ -36,6 +38,7 @@ public class GalleryActivity extends AppCompatActivity {
         });
     }
 
+    //function to draws the toolbar menu and icons on the top of the app
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
