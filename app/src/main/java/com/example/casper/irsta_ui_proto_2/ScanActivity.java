@@ -1,17 +1,15 @@
 package com.example.casper.irsta_ui_proto_2;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
 
 import com.github.chrisbanes.photoview.PhotoView;
+
+import java.io.ByteArrayOutputStream;
 
 public class ScanActivity extends AppCompatActivity {
 
@@ -55,7 +53,15 @@ public class ScanActivity extends AppCompatActivity {
     //Function that calls SaveDialog in order to create a popup dialog
     public void openSaveDialog() {
         SaveDialog saveDialog = new SaveDialog();
+        Bundle imageBundle = new Bundle();
+
+
+
+
+//        imageBundle.putByteArray("passedImage", bytearraygoeshere);
+        saveDialog.setArguments(imageBundle);
         saveDialog.show(getSupportFragmentManager(), "Save Dialog");
+
     }
 
     private void initialiseUI() {

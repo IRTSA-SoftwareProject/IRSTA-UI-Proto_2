@@ -2,7 +2,6 @@ package com.example.casper.irsta_ui_proto_2;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private Button mStartScanButton;
     private MenuItem mSettings;
     private MenuItem mSave;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

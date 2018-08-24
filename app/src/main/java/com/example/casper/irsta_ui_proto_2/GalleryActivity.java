@@ -1,20 +1,33 @@
 package com.example.casper.irsta_ui_proto_2;
 
 import android.content.Intent;
+import android.media.Image;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.example.casper.irsta_ui_proto_2.model.Scan;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class GalleryActivity extends AppCompatActivity {
 
     private MenuItem mSelect;
     private MenuItem mDelete;
     private MenuItem mShare;
+    private ArrayList<Scan> images;
+    private RecyclerView recyclerView;
+    private GalleryAdapter mAdapter;
+    private File imgDir;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +49,15 @@ public class GalleryActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        images = new ArrayList<>();
+        mAdapter = new GalleryAdapter(getApplicationContext());
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setAdapter(mAdapter);
+
+
     }
 
     //function to draws the toolbar menu and icons on the top of the app
